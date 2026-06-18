@@ -1,2 +1,12 @@
 def group_anagrams(words: list[str]) -> list[list[str]]:
-    raise NotImplementedError
+    anagram_map = {}
+
+    for word in words:
+        sorted_word = "".join(sorted(word))
+
+        if sorted_word not in anagram_map:
+            anagram_map[sorted_word] = []
+
+        anagram_map[sorted_word].append(word)
+
+    return list(anagram_map.values())

@@ -6,4 +6,14 @@ def lowest_common_ancestor(
     value1: int,
     value2: int,
 ) -> int:
-    raise NotImplementedError
+    current = root
+
+    while current is not None:
+        if value1 < current.value and value2 < current.value:
+            current = current.left
+
+        elif value1 > current.value and value2 > current.value:
+            current = current.right
+
+        else:
+            return current.value
